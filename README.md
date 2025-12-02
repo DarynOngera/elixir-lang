@@ -1,2 +1,2 @@
 # elixir-lang
-This repo is where I will be learning elixir from 
+In this repository I will be learning the fundamentals of programming in elixir.
