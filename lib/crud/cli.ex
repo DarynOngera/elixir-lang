@@ -15,7 +15,8 @@ defmodule Crud.Cli do
     2. CREATE USER
     3. UPDATE USER
     4. DELETE USER
-    5. EXIT
+    5. FIND BY EMAIL
+    6. EXIT
     """)
 
     IO.gets("Choose: ") |> String.trim()
@@ -25,7 +26,8 @@ defmodule Crud.Cli do
   defp handle_choice("2"), do: create_user()
   defp handle_choice("3"), do: update_user()
   defp handle_choice("4"), do: delete_user()
-  defp handle_choice("5"), do: :ok
+  defp handle_choice("5"), do: find_by_email()
+  defp handle_choice("6"), do: :ok
   defp handle_choice(_), do: start()
 
   def list_users() do
@@ -75,6 +77,15 @@ defmodule Crud.Cli do
     {:ok, _} = Accounts.delete_user(user)
 
     IO.puts("Deleted")
+    start()
+  end
+  
+  def find_by_email() do
+    email = 
+      IO.gets("Enter email(to find user): ")
+      |> String.trim()
+    Accounts.find_by_email(email)
+
     start()
   end
 end
