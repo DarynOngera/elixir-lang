@@ -84,7 +84,9 @@ defmodule Crud.Cli do
     email = 
       IO.gets("Enter email(to find user): ")
       |> String.trim()
-    Accounts.find_by_email(email)
+      user = Accounts.find_by_email(email)
+
+    IO.puts("ID: #{user.id} #{user.name} (#{user.email})")
 
     start()
   end
