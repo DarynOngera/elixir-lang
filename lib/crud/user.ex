@@ -6,6 +6,7 @@ defmodule Crud.User do
     field :name, :string
     field :email, :string
     field :age, :integer
+    has_many :blogs, Crud.Blog
 
     #timestamps()
   end
