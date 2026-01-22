@@ -8,6 +8,24 @@ defmodule Crud.Blogging do
     Content.login(email)
   end
 
+  def start do
+    menu()
+    |> handle_choice()
+  end
+
+  defp handle_choice("1"), do: create_blog()
+  defp handle_choice("2"), do: list_my_blogs()
+  defp handle_choice("3"), do: delete_blogs()
+
+  def menu do
+    IO.puts("""
+      BLOG
+      1. CREATE BLOG
+      2. SEE YOUR BLOGS
+      3. DELETE BLOG 
+      """)
+    IO.gets("Choose: ") |> String.trim()
+  end
 
   def create_blog() do
     IO.puts("Share your knowledge with the world!!")
