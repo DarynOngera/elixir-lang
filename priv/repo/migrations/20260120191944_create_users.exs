@@ -5,7 +5,7 @@ defmodule Crud.Repo.Migrations.CreateUsers do
     create table(:users) do
       add :name, :string, null: false
       add :email, :string, null: false
-      add :age, :integer, default: 0
+      add :age, :integer, default: 0 
     end
   end
 end
